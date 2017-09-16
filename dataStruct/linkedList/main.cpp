@@ -5,15 +5,10 @@ using namespace std;
 struct Node {
 	int value;
 	struct Node* next;
-	Node() {
 
-	}
-	Node(int value, Node *next) {
+	Node(int value, Node *next=NULL) {
 		this->value = value;
 		this->next = next;
-	}
-	Node(int a) {
-		value = a;
 	}
 };
 
@@ -22,7 +17,7 @@ private:
 	struct Node head;
 	int length;
 public:
-	linkedList(int a[], int n) {
+	linkedList(int a[], int n):head(0) {
 		head.next = NULL;
 		this->length = 0;
 
@@ -30,9 +25,7 @@ public:
 		Node *tail = &head;
 
 		for (int i = 0; i < n; ++i) {
-			p = new struct Node();
-			p->next = NULL;
-			p->value = a[i];
+			p = new struct Node(a[i]);
 
 			tail->next = p;
 			tail = p;
@@ -86,6 +79,7 @@ public:
 			tail = tail->next;
 		}
 		Node *newNode = new Node(value);
+
 		tail->next = newNode;
 		length++;
 
@@ -113,11 +107,14 @@ int main() {
 	int array[] = { 1, 3, 4, 5 };
 	linkedList a(array, sizeof(array) / sizeof(int));
 	a.display();
+	cout << endl;
 	a.deleteNode(1);
 	a.display();
+	cout << endl;
 	a.insertNode(6);
 	a.insert(1, 0);
 	a.display();
+	cout << endl;
 
 	return 0;
 }
