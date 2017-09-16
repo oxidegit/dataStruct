@@ -1,4 +1,4 @@
-//Á´±í
+//linkedlist implemented by c++
 #include <iostream>
 using namespace std;
 
