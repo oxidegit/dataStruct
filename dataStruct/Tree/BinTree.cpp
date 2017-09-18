@@ -45,5 +45,23 @@ void BinTree::postOrder(BinNode *root) {
 	}
 }
 void BinTree::levelOrder(BinNode *root) {
+	BinNode *pQueue[20];
+	BinNode *current = NULL;
+	int front = -1;
+	int rear = -1;
 
+	if (root) {
+		pQueue[++rear] = root;
+	}
+	while (rear != front) {
+		current = pQueue[++front];
+		cout << current->value << " ";
+
+		if (current->leftChild) {
+			pQueue[++rear] = current->leftChild;
+		}
+		if (current->rightChild) {
+			pQueue[++rear] = current->rightChild;
+		}
+	}
 }

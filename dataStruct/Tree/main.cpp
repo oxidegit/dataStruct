@@ -7,7 +7,7 @@ int main() {
 
 	BinTree t = BinTree();
 	t.inOrder();
-
+	t.levelOrder();
 
 	return 0;
 }
